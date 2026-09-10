@@ -47,6 +47,15 @@ st.markdown("""
         color: #6ee7b7;
         padding: 4px 10px;
         border-radius: 6px;
+        font-weight: 600;
+    }
+    .badge-esc {
+        background-color: #7f1d1d;
+        color: #fca5a5;
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-weight: 600;
+    }
     .badge-hiver {
         background-color: #1e1b4b;
         color: #c7d2fe;
@@ -56,6 +65,23 @@ st.markdown("""
         font-weight: 600;
         display: inline-block;
         margin-top: 4px;
+    }
+    /* Tab bar styling */
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 8px;
+    }
+    .stTabs [data-baseweb="tab"] {
+        height: 48px;
+        white-space: pre-wrap;
+        background-color: #1f2937;
+        border-radius: 8px 8px 0px 0px;
+        padding: 10px 16px;
+        font-weight: 600;
+        font-size: 0.95rem;
+    }
+    .stTabs [aria-selected="true"] {
+        background-color: #374151 !important;
+        border-bottom: 3px solid #ef4444 !important;
     }
 </style>
 """, unsafe_allow_html=True)
