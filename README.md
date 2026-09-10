@@ -1,10 +1,22 @@
-# Hiver SDE Intern Assignment — AI Support Agent (@AppleSupport)
+<div align="center">
 
-> **Core Philosophy**: *"The proof is worth more than the system."*  
-> An industrial-grade, RAG-grounded customer support pipeline evaluated through rigorous, transparent, and calibrated metrics.
+# 🐝 Hiver SDE Intern Assignment — AI Support Agent
+### End-to-End Grounded Support Resolution, Multi-Signal Triage & Calibrated Evaluation
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://akashms24-hiver-ai-support-agent-app-xt0yyb.streamlit.app/)
-🔗 **Live Interactive Demo:** [https://akashms24-hiver-ai-support-agent-app-xt0yyb.streamlit.app/](https://akashms24-hiver-ai-support-agent-app-xt0yyb.streamlit.app/)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
+👉 **[Launch Live Interactive Dashboard & Hiver Simulator](https://akashms24-hiver-ai-support-agent-app-xt0yyb.streamlit.app/)** 👈
+
+*Built by **Akash M S** (`ms29akash@gmail.com`) for the **Hiver SDE Intern Role***
+
+---
+</div>
+
+> **Core Philosophy**: *"The proof is worth more than the system."*  
+> An industrial-grade, RAG-grounded customer support pipeline evaluated through rigorous, transparent, and calibrated metrics for **`@AppleSupport`**.
 
 ---
 
