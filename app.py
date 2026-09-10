@@ -83,7 +83,78 @@ st.markdown("""
         background-color: #374151 !important;
         border-bottom: 3px solid #ef4444 !important;
     }
+    /* Hiver branded header */
+    .hiver-header {
+        background: linear-gradient(135deg, #1E6FFF 0%, #0A4FD4 60%, #0D3B8F 100%);
+        padding: 1.2rem 2rem;
+        border-radius: 10px;
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    .hiver-header-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    .hiver-header-title {
+        font-size: 1.45rem;
+        font-weight: 700;
+        color: #ffffff;
+        letter-spacing: -0.02em;
+    }
+    .hiver-header-badge {
+        background: rgba(255,255,255,0.15);
+        border: 1px solid rgba(255,255,255,0.3);
+        color: #ffffff;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.82rem;
+        font-weight: 600;
+    }
+    .hiver-header-right {
+        color: rgba(255,255,255,0.85);
+        font-size: 0.88rem;
+        text-align: right;
+    }
+    /* Footer */
+    .hiver-footer {
+        margin-top: 3rem;
+        padding: 1.5rem 2rem;
+        border-top: 1px solid #374151;
+        text-align: center;
+        color: #9ca3af;
+        font-size: 0.88rem;
+    }
+    .hiver-footer a {
+        color: #1E6FFF;
+        text-decoration: none;
+        font-weight: 600;
+    }
+    .hiver-footer-brand {
+        font-size: 1rem;
+        font-weight: 700;
+        color: #d1d5db;
+        margin-bottom: 0.4rem;
+    }
 </style>
+""", unsafe_allow_html=True)
+
+# Hiver branded header
+st.markdown("""
+<div class="hiver-header">
+    <div class="hiver-header-left">
+        <span style="font-size:1.8rem;">💼</span>
+        <span class="hiver-header-title">Built for Hiver — SDE Intern Assignment</span>
+        <span class="hiver-header-badge">AI-Powered Customer Support</span>
+    </div>
+    <div class="hiver-header-right">
+        RAG-Grounded @AppleSupport Pipeline &bull; Multi-Signal Escalation Engine &bull; N=200 Golden Eval
+    </div>
+</div>
 """, unsafe_allow_html=True)
 
 # Navigation Tabs
@@ -418,3 +489,20 @@ with tabs[5]:
     for title, desc in decisions:
         with st.expander(title):
             st.write(desc)
+
+# ==========================================
+# FOOTER
+# ==========================================
+st.markdown("""
+<div class="hiver-footer">
+    <div class="hiver-footer-brand">Hiver AI Support Agent &mdash; Assignment Submission</div>
+    <div>
+        Engineered by <strong>Akash M S</strong> &bull;
+        <a href="mailto:ms29akash@gmail.com">ms29akash@gmail.com</a> &bull;
+        <a href="https://github.com/AkashMs24/hiver-ai-support-agent" target="_blank">GitHub Repository</a>
+    </div>
+    <div style="margin-top: 0.5rem; color: #6b7280; font-size: 0.82rem;">
+        RAG-grounded pipeline &bull; 12-class intent taxonomy &bull; Multi-signal escalation &bull; Cohen's κ = 0.692 &bull; Golden Set N=200
+    </div>
+</div>
+""", unsafe_allow_html=True)
