@@ -3,6 +3,9 @@
 > **Core Philosophy**: *"The proof is worth more than the system."*  
 > An industrial-grade, RAG-grounded customer support pipeline evaluated through rigorous, transparent, and calibrated metrics.
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://akashms24-hiver-ai-support-agent-app-xt0yyb.streamlit.app/)
+🔗 **Live Interactive Demo:** [https://akashms24-hiver-ai-support-agent-app-xt0yyb.streamlit.app/](https://akashms24-hiver-ai-support-agent-app-xt0yyb.streamlit.app/)
+
 ---
 
 ## 1. Problem Framing: What "Good" Means for @AppleSupport
