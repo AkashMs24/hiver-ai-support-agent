@@ -47,14 +47,15 @@ st.markdown("""
         color: #6ee7b7;
         padding: 4px 10px;
         border-radius: 6px;
-        font-weight: 600;
-    }
-    .badge-esc {
-        background-color: #7f1d1d;
-        color: #fca5a5;
-        padding: 4px 10px;
+    .badge-hiver {
+        background-color: #1e1b4b;
+        color: #c7d2fe;
+        border: 1px solid #4338ca;
+        padding: 6px 12px;
         border-radius: 6px;
         font-weight: 600;
+        display: inline-block;
+        margin-top: 4px;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -62,6 +63,7 @@ st.markdown("""
 # Navigation Tabs
 tabs = st.tabs([
     "🚀 Live Agent & Escalation Triage",
+    "📥 Hiver Shared Inbox Simulator",
     "📊 Benchmark vs Baselines",
     "🎯 Golden Dataset (N=200)",
     "⚖️ LLM-as-a-Judge & Cohen's Kappa",
@@ -84,10 +86,14 @@ with st.sidebar:
     st.markdown("✅ **Hard Emergency Override** (Fire / Smoke / Hack)")
     st.markdown("✅ **280-Char Strict Twitter Budget**")
     st.markdown("✅ **FAISS Historical RAG Grounding**")
-    st.markdown("✅ **Dual API Failover** (Groq / Gemini)")
-    
     st.markdown("---")
-    st.caption("Submitted by **Akash M S** | [GitHub Repo](https://github.com/AkashMs24/hiver-ai-support-agent)")
+    st.markdown("#### **Candidate Profile**")
+    st.markdown("👤 **AKASH M S**")
+    st.markdown("📧 `ms29akash@gmail.com`")
+    st.markdown("📱 `+91 9036013800`")
+    st.markdown("🔗 [LinkedIn Profile](https://www.linkedin.com/in/akashms01)")
+    st.markdown("💻 [GitHub Repo](https://github.com/AkashMs24/hiver-ai-support-agent)")
+    st.caption("Target Role: **SDE Intern @ Hiver**")
 
 
 @st.cache_resource
@@ -177,9 +183,76 @@ with tabs[0]:
 
 
 # ==========================================
-# TAB 2: BENCHMARK VS BASELINES
+# TAB 2: HIVER SHARED INBOX & COPILOT SIMULATOR
 # ==========================================
 with tabs[1]:
+    st.markdown("## 📥 Hiver Shared Inbox & AI Copilot Simulator")
+    st.markdown("""
+    *Experience how this AI pipeline integrates natively into **Hiver's Gmail Shared Inbox**.*
+    Hiver eliminates the chaos of shared inboxes (`support@`, `billing@`) using **Auto-Tagging**, **Collision Prevention**, and **Internal Notes**.
+    """)
+
+    st.markdown("---")
+    st.markdown("### 1. Auto-Tagging & Queue Routing")
+    st.markdown("""
+    When an inbound customer ticket arrives, our **12-class Intent Classifier** maps directly to Hiver's tag routing engine:
+    """)
+
+    tag_col1, tag_col2, tag_col3 = st.columns(3)
+    with tag_col1:
+        st.info("🏷️ **Tag: `billing_charge`** ➔ Route to: **Finance & Accounts Queue**")
+        st.info("🏷️ **Tag: `device_hardware`** ➔ Route to: **Hardware Repair / Genius Bar**")
+    with tag_col2:
+        st.info("🏷️ **Tag: `account_access`** ➔ Route to: **Security & Identity Tier 2**")
+        st.info("🏷️ **Tag: `software_update`** ➔ Route to: **iOS & macOS Triage Queue**")
+    with tag_col3:
+        st.success("🏷️ **Tag: `general_inquiry`** ➔ Handled by: **Self-Service AI Bot**")
+        st.warning("🏷️ **Tag: `feedback_complaint`** ➔ Priority: **High / Churn Threat Alert**")
+
+    st.markdown("---")
+    st.markdown("### 2. Live Hiver AI Copilot 'Internal Note' Generator")
+    st.caption("When an issue requires escalation, Hiver agents rely on **Internal Notes** (yellow sticky comments in Gmail) so they don't have to re-read long email threads.")
+
+    h_input = st.text_input(
+        "Simulate an escalating customer message:",
+        value="Someone hacked my Apple ID, changed my email, and charged $120 to my card! Need immediate assistance!",
+    )
+
+    if st.button("Generate Hiver Internal Note & Collision Guard", type="secondary"):
+        with st.spinner("Generating Hiver Internal Note..."):
+            h_res = pipeline.process_message(h_input)
+
+        st.markdown("""
+        <div style="background-color: #fef3c7; border: 2px solid #f59e0b; border-radius: 8px; padding: 1.2rem; color: #78350f; font-family: monospace; margin: 1rem 0;">
+            <div style="font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem; display: flex; align-items: center; justify-content: space-between;">
+                <span>🟡 HIVER INTERNAL NOTE (Private - Hidden from Customer)</span>
+                <span style="font-size: 0.85rem; background: #fbbf24; padding: 2px 8px; border-radius: 4px;">Created by: Hiver AI Copilot</span>
+            </div>
+            <hr style="border: 0.5px solid #d97706; margin: 0.5rem 0;">
+            <b>Assigned Queue:</b> Tier-2 Senior Triage<br>
+            <b>Auto-Detected Intent:</b> """ + h_res["intent"]["category"] + """ (Confidence: """ + str(round(h_res["intent"]["confidence"] * 100, 1)) + """%)<br>
+            <b>Escalation Decision:</b> """ + h_res["escalation"]["decision"].upper() + """ (Risk Score: """ + str(h_res["escalation"]["score"]) + """)<br>
+            <b>Audit Reasons:</b><br>
+            """ + "".join([f"&nbsp;&nbsp;• {r}<br>" for r in h_res["escalation"]["reasons"]]) + """
+            <br>
+            <b>Collision Guard:</b> Locked for agent review to prevent duplicate replies.<br>
+            <b>Recommended Agent Action:</b> Verify photo ID on file, freeze iCloud token, and trigger payment dispute.
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.markdown("---")
+    st.markdown("### 3. SLA Breach Warning Mechanism")
+    st.markdown("""
+    * **Turn 1–2**: Automated RAG replies draft instantaneous resolutions within seconds.
+    * **Turn 3**: Proactive prompt to gather diagnostic info (device model, iOS version).
+    * **Turn 4+**: Hard automatic escalation trigger before enterprise SLA thresholds (e.g. 2-hour First Response Time) are breached.
+    """)
+
+
+# ==========================================
+# TAB 3: BENCHMARK VS BASELINES
+# ==========================================
+with tabs[2]:
     st.markdown("## Comparative Benchmark Evaluation")
     st.markdown("Hiver specifically requires comparing against **at least two baselines**: a *trivial* one and a *simple* one.")
 
@@ -220,9 +293,9 @@ with tabs[1]:
 
 
 # ==========================================
-# TAB 3: GOLDEN DATASET EXPLORER
+# TAB 4: GOLDEN DATASET EXPLORER
 # ==========================================
-with tabs[2]:
+with tabs[3]:
     st.markdown("## Golden Evaluation Set (N=200)")
     st.markdown("Authentic, hand-labeled benchmark sampled across **4 intentional distributions** to stress-test the pipeline beyond naive random sampling.")
 
@@ -260,9 +333,9 @@ with tabs[2]:
 
 
 # ==========================================
-# TAB 4: LLM-AS-A-JUDGE & CALIBRATION
+# TAB 5: LLM-AS-A-JUDGE & CALIBRATION
 # ==========================================
-with tabs[3]:
+with tabs[4]:
     st.markdown("## LLM-as-a-Judge & Cohen's Kappa Inter-Rater Calibration")
     st.markdown("*\"The proof is worth more than the system.\"* An evaluation metric is useless if the judge cannot be trusted.")
 
@@ -292,9 +365,9 @@ with tabs[3]:
 
 
 # ==========================================
-# TAB 5: TECHNICAL DECISION LOG
+# TAB 6: TECHNICAL DECISION LOG
 # ==========================================
-with tabs[4]:
+with tabs[5]:
     st.markdown("## 15 Non-Obvious Architecture Decisions")
     st.markdown("Detailed rationale and production engineering trade-offs behind our solution:")
 
