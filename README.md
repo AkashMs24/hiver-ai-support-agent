@@ -8,6 +8,17 @@
 
 ---
 
+## 🎯 Direct Alignment with Hiver's Core Product Architecture
+
+Hiver's primary mission is turning shared inboxes (Gmail/Outlook) and omni-channel support into collaborative, AI-augmented workspaces. Our pipeline was engineered specifically around Hiver's real-world product primitives:
+
+1. **Auto-Assignment & Smart Tagging**: Our 12-class intent engine maps directly to Hiver's automatic email tagger, categorizing incoming tickets for specialized agent queues.
+2. **AI Copilot "Internal Notes" Handoff**: When our escalation engine triggers, it doesn't just pass the ticket—it compiles an **automated internal private note** containing the detected intent, risk breakdown, and stated escalation reason so the human agent has instant triage context without reading 10 prior emails.
+3. **Collision & Hallucination Prevention**: By grounding replies in historical FAISS precedents and enforcing strict confidence thresholds, the system prevents catastrophic customer-facing hallucinations.
+4. **SLA Breach Mitigation via Turn-Depth Penalties**: The pipeline monitors conversation depth ($turn \ge 4$), dynamically escalating stalled tickets before they violate enterprise Service Level Agreements (SLAs).
+
+---
+
 ## 1. Problem Framing: What "Good" Means for @AppleSupport
 
 ### What "Good" Means:
